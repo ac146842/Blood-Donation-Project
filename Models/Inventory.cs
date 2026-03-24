@@ -1,7 +1,10 @@
-﻿namespace Blood_Donation_Project.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Blood_Donation_Project.Models
 {
     public class Inventory
     {
+        [Key]
         public int BloodBank_ID { get; set; }
         public int Donation_ID { get; set; }
         public int BloodType_ID { get; set; }

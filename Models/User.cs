@@ -1,7 +1,10 @@
-﻿namespace Blood_Donation_Project.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Blood_Donation_Project.Models
 {
     public class User
     {
+        [Key]
         public int User_ID { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }

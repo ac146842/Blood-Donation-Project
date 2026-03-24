@@ -4,6 +4,7 @@ namespace Blood_Donation_Project.Models
 {
     public class Donor
     {
+        [Key]
         public int Donor_ID { get; set; }
         public int BloodType_ID { get; set; } 
         public string FirstName { get; set; }
