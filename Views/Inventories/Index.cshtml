@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Blood_Donation_Project.Models.Inventory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Donation_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BloodType_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VolumeML)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpiryDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donation_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodType_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VolumeML)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpiryDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BloodBank_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BloodBank_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BloodBank_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

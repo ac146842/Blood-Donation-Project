@@ -1,0 +1,156 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Blood_Donation_Project.Models;
+
+namespace Blood_Donation_Project.Controllers
+{
+    public class DonatedBloodsController : Controller
+    {
+        private readonly BloodDbContext _context;
+
+        public DonatedBloodsController(BloodDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: DonatedBloods
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.DonatedBlood.ToListAsync());
+        }
+
+        // GET: DonatedBloods/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var donatedBlood = await _context.DonatedBlood
+                .FirstOrDefaultAsync(m => m.Donation_ID == id);
+            if (donatedBlood == null)
+            {
+                return NotFound();
+            }
+
+            return View(donatedBlood);
+        }
+
+        // GET: DonatedBloods/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: DonatedBloods/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Donation_ID,Donor_ID,Nurse_ID,Appointment_ID,DonationDateTime")] DonatedBlood donatedBlood)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(donatedBlood);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(donatedBlood);
+        }
+
+        // GET: DonatedBloods/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var donatedBlood = await _context.DonatedBlood.FindAsync(id);
+            if (donatedBlood == null)
+            {
+                return NotFound();
+            }
+            return View(donatedBlood);
+        }
+
+        // POST: DonatedBloods/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Donation_ID,Donor_ID,Nurse_ID,Appointment_ID,DonationDateTime")] DonatedBlood donatedBlood)
+        {
+            if (id != donatedBlood.Donation_ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(donatedBlood);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!DonatedBloodExists(donatedBlood.Donation_ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(donatedBlood);
+        }
+
+        // GET: DonatedBloods/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var donatedBlood = await _context.DonatedBlood
+                .FirstOrDefaultAsync(m => m.Donation_ID == id);
+            if (donatedBlood == null)
+            {
+                return NotFound();
+            }
+
+            return View(donatedBlood);
+        }
+
+        // POST: DonatedBloods/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var donatedBlood = await _context.DonatedBlood.FindAsync(id);
+            if (donatedBlood != null)
+            {
+                _context.DonatedBlood.Remove(donatedBlood);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool DonatedBloodExists(int id)
+        {
+            return _context.DonatedBlood.Any(e => e.Donation_ID == id);
+        }
+    }
+}
