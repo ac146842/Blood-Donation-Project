@@ -1,0 +1,22 @@
+INSERT INTO Nurse (FirstName, LastName, Phone, Email)
+VALUES 
+('Sarah', 'Conner', '5550102030', 's.conner@hospital.org'),
+('Mark', 'Sloan', '5551234567', 'msloan@clinic.net'),
+('Miranda', 'Bailey', '5559876543', 'mbailey@medical.com'),
+('Carla', 'Espinosa', '5552223344', 'carla.e@health.org'),
+('Christine', 'Chapel', '5554445566', 'c.chapel@starfleet.med'),
+('John', 'Watson', '5557778899', 'j.watson@bakermed.com'),
+('Abby', 'Lockhart', '5551112233', 'abby.l@county-gen.org'),
+('Carol', 'Hathaway', '5553334455', 'chathaway@hospital.org'),
+('Gaylord', 'Focker', '5555556677', 'g.focker@nurse.com'),
+('Margaret', 'Houlihan', '5558889900', 'hotlips@mash4077.mil'),
+('Jackie', 'Peyton', '5551212121', 'j.peyton@all-saints.com'),
+('Peter', 'Petrelli', '5553434343', 'p.petrelli@care.org'),
+('Rory', 'Williams', '5555656565', 'rory.the.nurse@time.com'),
+('Julia', 'Sullivan', '5557878787', 'jsullivan@medhub.net'),
+('Stephen', 'Strange', '5559090909', 's.strange@sanctum.med'),
+('Claire', 'Temple', '5551313131', 'ctemple@hellskitchen.org'),
+('Ben', 'Warren', '5552424242', 'bwarren@greys.com'),
+('April', 'Kepner', '5553535353', 'akepner@trauma.org'),
+('Jackson', 'Avery', '5554646464', 'javery@plastics.net'),
+('Owen', 'Hunt', '5555757575', 'ohunt@army.mil');
