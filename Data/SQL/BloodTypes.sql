@@ -1,4 +1,4 @@
-﻿INSERT INTO BloodTypeTable (BloodType_ID, BloodType) 
+﻿INSERT INTO BloodTypeTable (BloodType)
 VALUES
 ('A+'),
 ('A-'),
