@@ -1,8 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
+using Blood_Donation_Project.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BloodDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BloodDbContext") ?? throw new InvalidOperationException("Connection string 'BloodDbContext' not found.")));
+
+builder.Services.AddDefaultIdentity<BloodDonationProjectUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DataBloodDonationProjectContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
