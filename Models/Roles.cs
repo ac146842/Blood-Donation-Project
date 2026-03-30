@@ -7,6 +7,8 @@ namespace Blood_Donation_Project.Models
         [Key]
         public int Role_ID { get; set; }
         public int User_ID { get; set; }
+        [Required]
+        [StringLength(10)]
         public string Role  { get; set; }
     }
 }
