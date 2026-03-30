@@ -3,6 +3,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Blood_Donation_Project.Areas.Identity.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<DataBloodDonationProjectContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("BloodDbContext")
+        ?? throw new InvalidOperationException("Connection string 'BloodDbContext' not found.")
+    )
+);
+
+// Keep or also register BloodDbContext if your app needs it
 builder.Services.AddDbContext<BloodDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BloodDbContext") ?? throw new InvalidOperationException("Connection string 'BloodDbContext' not found.")));
 
