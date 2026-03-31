@@ -3,6 +3,7 @@
 namespace Blood_Donation_Project.Models
 {
     //create enum for bloodtype
+    //add error messages for validation eg "name too long"
     public class Donor
     { 
         [Key]
