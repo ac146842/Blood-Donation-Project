@@ -2,8 +2,9 @@
 
 namespace Blood_Donation_Project.Models
 {
+    //create enum for bloodtype
     public class Donor
-    {
+    { 
         [Key]
         public int Donor_ID { get; set; }
         [Required]
