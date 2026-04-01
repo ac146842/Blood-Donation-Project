@@ -9,7 +9,7 @@ namespace Blood_Donation_Project.Models
         aNegative,
         bPositive,
         bNegative,
-        abPosi tive,
+        abPositive,
         abNegative,
         oPositive,
         oNegative,
@@ -22,28 +22,32 @@ namespace Blood_Donation_Project.Models
 
     //add error messages for every model validation eg "name too long"
     public class Donor
-    { 
+    {
+        public BloodType BloodType { get; set; }
+
         [Key]
-        public int DonorID { get; set; }
+        public int Donor_ID { get; set; }
 
         [Required]
-        public int BloodTypeID { get; set; } 
+        public int BloodType_ID { get; set; } 
+
         [Required]
         [StringLength(50)]
         public string FirstName { get; set; }
+       
         [Required]
-        [StringLength(50)]
-        [EmailAddress]
+        [StringLength(50)] 
         public string LastName { get; set; }
+
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
         [Required]
         [DataType(DataType.PhoneNumber)]
         public int Phone { get; set; }
+
         [Required]
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
-
-        public BloodType BloodType { get; set; }
     }
 }
