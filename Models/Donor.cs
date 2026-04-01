@@ -3,6 +3,22 @@
 namespace Blood_Donation_Project.Models
 {
     //create enum for bloodtype
+    public enum BloodType
+    {
+        aPositive,
+        aNegative,
+        bPositive,
+        bNegative,
+        abPositive,
+        abNegative,
+        oPositive,
+        oNegative
+
+
+    }
+
+    //change erd to match NVARCHAR updates
+
     //add error messages for every model validation eg "name too long"
     public class Donor
     { 
