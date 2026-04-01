@@ -9,25 +9,25 @@ namespace Blood_Donation_Project.Models
         aNegative,
         bPositive,
         bNegative,
-        abPositive,
+        abPosi tive,
         abNegative,
         oPositive,
-        oNegative
-
-
+        oNegative,
     }
 
     //possibly add audit log for tracking changes to donor information
     //add 2FA
     //change erd to match NVARCHAR updates
+    //get rid of all underscores in var names
 
     //add error messages for every model validation eg "name too long"
     public class Donor
     { 
         [Key]
-        public int Donor_ID { get; set; }
+        public int DonorID { get; set; }
+
         [Required]
-        public int BloodType_ID { get; set; } 
+        public int BloodTypeID { get; set; } 
         [Required]
         [StringLength(50)]
         public string FirstName { get; set; }
@@ -43,5 +43,7 @@ namespace Blood_Donation_Project.Models
         [Required]
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
+
+        public BloodType BloodType { get; set; }
     }
 }
