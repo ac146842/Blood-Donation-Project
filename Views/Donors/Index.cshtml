@@ -30,6 +30,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateOfBirth)
             </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BloodType)
+            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -45,6 +50,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodType)
+           </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
