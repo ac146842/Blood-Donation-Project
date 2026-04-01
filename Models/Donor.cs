@@ -18,7 +18,7 @@ namespace Blood_Donation_Project.Models
     //possibly add audit log for tracking changes to donor information
     //add 2FA
     //change erd to match NVARCHAR updates
-    //get rid of all underscores in var names
+    //get rid of all underscores in var names and in inserts
 
     //add error messages for every model validation eg "name too long"
     public class Donor
