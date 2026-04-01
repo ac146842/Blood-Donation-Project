@@ -17,6 +17,7 @@ namespace Blood_Donation_Project.Models
 
     }
 
+    //possibly add audit log for tracking changes to donor information
     //add 2FA
     //change erd to match NVARCHAR updates
 
