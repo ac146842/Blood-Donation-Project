@@ -17,6 +17,7 @@ namespace Blood_Donation_Project.Models
 
     }
 
+    //add 2FA
     //change erd to match NVARCHAR updates
 
     //add error messages for every model validation eg "name too long"
